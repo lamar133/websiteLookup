@@ -1,27 +1,6 @@
-from flask import Flask, request, render_template, url_for
+from flask import Flask, request, render_template
 from string import Template
 import main
-
-PROFILE_CONTAINER = Template("""
-<div id="divider"></div>
-<div id="container">
-    <div id="current_show"><b>{{current_show}}</b></div>
-    <button class='nav_bttn' id='prev_bttn'>Previous</button>
-    <button class='nav_bttn' id='next_bttn'>Next</button>
-    <div id="pic_counter"><b>{{num_actors}} Actors in this List</b></div>
-    <div id="actor_pic">
-        {% for actor in actor_dict %}
-        <img src={{ actor.Pics }}>
-        {% endfor %}
-    </div>
-    <div id="actor_name">
-        {% for actor in actor_dict %}
-        <p>{{ actor.Actors }}</p>
-        {% endfor %}
-    </div>
-    <button id="reveal_bttn">Show Name</button>
-</div>
-    """)
 
 app = Flask(__name__)
 

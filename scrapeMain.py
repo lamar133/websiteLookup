@@ -8,26 +8,33 @@ def scrapeMain(pURL):
     souped = soupTheLink.soupTheLink(pURL)
     
     # Collect site title
+    splitSiteTitle=[]
     try:
         siteTitle = souped.title.get_text()
         siteTitle = str(siteTitle)
         if len(siteTitle) == 0:
             siteTitle = sliceURL.sliceURL(pURL).replace('.com', '').replace('/', '')
+        else:
+            splitSiteTitle = siteTitle.split('-')
+            siteTitle = splitSiteTitle[0]
         print('title: ', siteTitle)
     except AttributeError:
         siteTitle = 'No title found.'
         
     # Collect site description
-    try:
-        siteDescription = souped.find(id='site-description').get_text()
-        
-        if len(siteDescription) == 0:
-            siteDescription = souped.find(name='description').get_text()
-            
-            
-        print('description: ', siteDescription)
-    except AttributeError:
-        siteDescription = 'No description found.'
+    if len(splitSiteTitle) == 2:
+        siteDescription = splitSiteTitle[1]
+    else:
+        try:
+            siteDescription = souped.find(id='site-description').get_text()
+
+            if len(siteDescription) == 0:
+                siteDescription = souped.find(name='description').get_text()
+
+
+            print('description: ', siteDescription)
+        except AttributeError:
+            siteDescription = 'No description found.'
     
     # Collect social media
     commonSocialMedia = ['facebook', 'instagram', 'youtube', 'twitter', 'pinterest', 'linkedin', 'google', 'yelp', 'tumblr', 'github']
