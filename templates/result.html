@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lamar's Website Lookup</title>
+    <link rel="stylesheet" href="../static/app.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href='//fonts.googleapis.com/css?family=Didact Gothic' rel='stylesheet'>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+        crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <script src="../static/nav.js"></script>
+    <script src="../static/show_titles.js"></script>
+</head>
+
+<body class="bodystyle">
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                    aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+                <a class="navbar-brand" href="search.html">Lamar's Website Lookup</a>
+            </div>
+
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <div class="container">
+        <h1 class="page-header">Welcome to the Data Detective Database</h1>
+        <p class="lead">This proprietary software, developed by world renowned data detective Lamar Johnson, is the central hub for all of your need-to-know website sleuthing needs.</p>
+
+        <div class="row">
+            <div class="col-xs-11 col-md-5 maintext">
+                <form action="{{ url_for('result')}}" id='textform' method='post'>
+                    <h2>Try another website here.</h2>
+		          <input type='text' id='showInput' form='textform' name='website'>
+		          <input type="submit" id='submitButton' form='textform'>
+                </form>
+                                
+                <h2>Or give it a try by selecting from one of the websites below</h2>
+                <div>
+                    <p class="show_title" style='color:blue;'>http://www.lamartalkscode.com</p>
+                    <p class="show_title" style='color:blue;'>https://www.hubba.com/</p>
+                    <p class="show_title" style='color:blue;'>http://www.everynoise.com</p>
+                    <p class="show_title" style='color:blue;'>https://www.last.fm/</p>
+                    <p class="show_title" style='color:blue;'>https://www.goodreads.com/</p>
+                    <p class="show_title" style='color:blue;'>https://www.quora.com/</p>
+                    <p class="show_title" style='color:blue;'>http://www.dictionary.com/</p>
+                    <p class="show_title" style='color:blue;'>https://www.ted.com/</p>
+                    <p class="show_title" style='color:blue;'>https://www.trendhunter.com/</p>
+                    <p class="show_title" style='color:blue;'>https://flipboard.com/</p>
+                </div>
+            </div>
+                
+            <div class="col-xs-11 col-md-5 maintext" style='position:absolute; right:7%;'>
+                <div id="profile_container">
+                    <div class="infoBox">
+                        <h3>Website</h3>
+                        <a href={{site}}>{{site}}</a></p>
+                    </div>
+                    <div class="infoBox">
+                        <h3>Title</h3>
+                        <p>{{title}}</p>
+                    </div>
+                    <div class="infoBox">
+                        <h3>Description</h3>
+                        <p>{{description}}</p>
+                    </div>
+                    <div class="infoBox">
+                        <h3>Socials</h3>
+                        <ul>
+                            {% for social in socials %}
+                            <li><a href={{ social }}>{{ social }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="infoBox">
+                        <h3>Address</h3>
+                        <p>{{address}}</p>
+                    </div>
+                    <div class="infoBox">
+                        <h3>City</h3>
+                        <p>{{city}}</p>
+                    </div>
+                    <div class="infoBox">
+                        <h3>State/Province</h3>
+                        <p>{{state}}</p>
+                    </div>
+                    <div class="infoBox">
+                        <h3>Country</h3>
+                        <p>{{country}}</p>
+                    </div>
+                    <div class="infoBox">
+                        <h3>Phone and Email</h3>
+                        <p>{{phone}}</p>
+                    </div>
+                    <div class="infoBox">
+                        <img height=18 src={{email}}>
+                    </div>
+                    <div class="infoBox">
+                        <h3>Alexa Score</h3>
+                        <p>{{alexa_score}}</p>
+                    </div>
+                    <div class="infoBox">
+                        <h3>Keywords</h3>
+                        <p>{{keywords}}</p>
+                    </div>
+                    <div class="infoBox">
+                        <h3>Timezone ID</h3>
+                        <p>{{timezone_id}}</p>
+                    </div>
+                    <div class="infoBox">
+                        <h3>Timezone Name</h3>
+                        <p>{{timezone_name}}</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
