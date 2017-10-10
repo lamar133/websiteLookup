@@ -1,3 +1,5 @@
+Play with the web app! -> http://lamjo.pythonanywhere.com/
+
 Where to find the information asked for:
 
 1. Meta-tags: 
@@ -12,3 +14,5 @@ Where to find the information asked for:
 7. Social media pages and handles --> scrapeMain.py
 8. Does it have an e-commerce platform somewhere on the site? --> getEcommerce.py
     What platform is it? (Shopify, Magento etc.) --> getEcommerce.py
+
+To activate this program on your local machine make a call to the flask_app.py

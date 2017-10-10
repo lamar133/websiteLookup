@@ -13,7 +13,7 @@ def search():
 def result():
     website = request.form['website']
     requiredInfo = main.runSearch(website)
-    return render_template('result.html', site=website, title=requiredInfo['Title'], description=requiredInfo['Description'], socials=requiredInfo['Socials'], address=requiredInfo['Address'], city=requiredInfo['City'], state=requiredInfo['State'], country=requiredInfo['Country'], phone=requiredInfo['Phone'], email=requiredInfo['Email'], alexa_score=requiredInfo['Alexa Score'], keywords=requiredInfo['Keywords'], timezone_id=requiredInfo['Timezone ID'], timezone_name=requiredInfo['Timezone Name'])
+    return render_template('result.html', site=website, title=requiredInfo['Title'], description=requiredInfo['Description'], socials=requiredInfo['Socials'], address=requiredInfo['Address'], city=requiredInfo['City'], state=requiredInfo['State'], country=requiredInfo['Country'], phone=requiredInfo['Phone'], email=requiredInfo['Email'], alexa_score=requiredInfo['Alexa Score'], keywords=requiredInfo['Keywords'], timezone_id=requiredInfo['Timezone ID'], timezone_name=requiredInfo['Timezone Name'], eCommercePlatforms=requiredInfo['E-Commerce Platform'])
     
 if __name__ == '__main__':
     app.run(debug=True, use_reloader=True)

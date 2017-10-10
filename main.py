@@ -1,4 +1,4 @@
-# Main function
+# Main function to call and collect all useful information in dictionary
 
 import sliceURL
 import scrapeMain
@@ -22,8 +22,8 @@ def runSearch(pURL):
     else:
         timezoneId, timezoneName = getTimezone.getTimezone(adminCity, adminStateOrProvince)
     
-    #eCommercePlatforms = getEcommerce.getEcommerce(slicedURL)
+    eCommercePlatforms = getEcommerce.getEcommerce(slicedURL)
     
-    requiredInfo = {'Title': siteTitle, 'Description': siteDescription, 'Socials': socialsOnSite, 'Address': adminAddress, 'City': adminCity, 'State': adminStateOrProvince, 'Country': adminCountry, 'Phone': adminPhone, 'Email': adminEmail, 'Alexa Score': score, 'Keywords': keywords, 'Timezone ID': timezoneId, 'Timezone Name': timezoneName}
+    requiredInfo = {'Title': siteTitle, 'Description': siteDescription, 'Socials': socialsOnSite, 'Address': adminAddress, 'City': adminCity, 'State': adminStateOrProvince, 'Country': adminCountry, 'Phone': adminPhone, 'Email': adminEmail, 'Alexa Score': score, 'Keywords': keywords, 'Timezone ID': timezoneId, 'Timezone Name': timezoneName, 'E-Commerce Platform': eCommercePlatforms}
     
     return requiredInfo
